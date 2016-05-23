@@ -8,10 +8,12 @@ public class RigidBodyPlanetWalker : MonoBehaviour {
 
 	private Vector3 _relativeDown;
 	private Rigidbody _body;
+	private Animator _anim;
 
 	void Start(){
 		_body = GetComponent<Rigidbody> ();
 		_body.constraints = RigidbodyConstraints.FreezeRotationY;
+		_anim = GetComponentInChildren<Animator> ();
 	}
 
 	void FixedUpdate () {
@@ -20,8 +22,11 @@ public class RigidBodyPlanetWalker : MonoBehaviour {
 		_body.velocity += getGravitationalAcceleration();
 
 		_body.velocity = Vector3.Project (_body.velocity, _relativeDown);
-		_body.velocity += getInputMovement ();
+		Vector3 inputMovement = getInputMovement ();
+		_body.velocity += inputMovement;
 		_body.transform.up = -_relativeDown;
+
+		_anim.SetFloat("Speed", inputMovement.magnitude);
 	}
 
 	void updateDown() {

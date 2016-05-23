@@ -22,5 +22,7 @@ public class CharacterControllerPlanetWalk : MonoBehaviour {
 		movement *= Time.deltaTime;
 		movement = transform.TransformDirection(movement);
 		_charController.Move (movement);
+
+
 	}
 }
