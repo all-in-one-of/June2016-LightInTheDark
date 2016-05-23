@@ -2,10 +2,11 @@
 using System.Collections;
 
 public class RigidBodyPlanetWalker : MonoBehaviour {
-	public float speed = 6.0f;
+	public float speed = 100.0f;
 	public float gravityStrength = 9.8f;
 	public GameObject planetaryBody;
 
+	private Vector3 _relativeDown;
 	private Rigidbody _body;
 
 	void Start(){
@@ -14,17 +15,28 @@ public class RigidBodyPlanetWalker : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		updateDown ();
+
+		_body.velocity += getGravitationalAcceleration();
+
+		_body.velocity = Vector3.Project (_body.velocity, _relativeDown);
+		_body.velocity += getInputMovement ();
+		_body.transform.up = -_relativeDown;
+	}
+
+	void updateDown() {
+		_relativeDown = (planetaryBody.transform.position - transform.position).normalized;
+	}
+
+	Vector3 getInputMovement() {
 		float deltaX = Input.GetAxis ("Horizontal") * speed;
 		float deltaZ = Input.GetAxis ("Vertical") * speed;
-		Vector3 movement = new Vector3(deltaX, 0, deltaZ);
-		movement = Vector3.ClampMagnitude (movement, speed);
-		Vector3 toPlanet = (planetaryBody.transform.position - transform.position).normalized;
+		Vector3 inputMovement = new Vector3(deltaX, 0, deltaZ);
+		inputMovement = Vector3.ClampMagnitude (inputMovement, speed);
+		return transform.TransformDirection(inputMovement);
+	}
 
-		movement += (gravityStrength * toPlanet);
-
-		Debug.Log ("movement " + movement + " toward " + toPlanet);
-
-		_body.velocity = movement;
-		_body.transform.up = -toPlanet;
+	Vector3 getGravitationalAcceleration() {
+		return gravityStrength * _relativeDown;
 	}
 }
