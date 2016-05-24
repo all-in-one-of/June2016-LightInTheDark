@@ -10,7 +10,6 @@ public class RigidBodyPlanetWalker : MonoBehaviour {
 	private Vector3 _relativeDown;
 	private Rigidbody _body;
 	private Animator _anim;
-	private Vector3 facing = Vector3.forward;
 
 	void Start(){
 		_body = GetComponent<Rigidbody> ();
@@ -25,10 +24,10 @@ public class RigidBodyPlanetWalker : MonoBehaviour {
 	}
 
 	void UpdateVelocity() {
-		_body.velocity += GetGravitationalAcceleration();
-
+		_body.velocity += GetGravitationalAcceleration() * Time.deltaTime;
 		Vector3 towardPlanet = Vector3.Project (_body.velocity, _relativeDown);
 		_body.velocity = towardPlanet;
+
 		Vector3 inputMovement = GetInputMovement ();
 		_body.velocity += inputMovement;
 
@@ -40,11 +39,11 @@ public class RigidBodyPlanetWalker : MonoBehaviour {
 	}
 
 	void FixRotation() {
-		float deltaX = Input.GetAxis ("Horizontal") * angularSpeed * Time.deltaTime;
-		facing = Quaternion.Euler (0, deltaX, 0) * facing;
+		Vector3 lookatPoint = Vector3.Cross(transform.right, -_relativeDown);
+		transform.LookAt (transform.position + lookatPoint, -_relativeDown);
 
-		Vector3 lookatPoint = Vector3.Cross(transform.right + facing, -_relativeDown);
-		transform.LookAt(transform.position + lookatPoint, -_relativeDown);
+		float deltaX = Input.GetAxis ("Horizontal") * angularSpeed * Time.deltaTime;
+		transform.Rotate (0, deltaX, 0);
 	}
 
 	Vector3 GetInputMovement() {
