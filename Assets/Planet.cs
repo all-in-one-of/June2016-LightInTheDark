@@ -18,8 +18,8 @@ public class Planet : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		RotateBy (rotationDegPerSec * Time.deltaTime * 10);
-		RevolveBy (orbitDegPerSec * Time.deltaTime * 10);
+		RotateBy (rotationDegPerSec * Time.deltaTime);
+		RevolveBy (orbitDegPerSec * Time.deltaTime);
 	}
 
 	void RotateBy (float degrees) { 
