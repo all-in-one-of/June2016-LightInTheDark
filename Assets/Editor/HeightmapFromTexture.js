@@ -1,6 +1,7 @@
 ﻿@MenuItem ("Terrain/Heightmap From Texture")
  
 static function ApplyHeightmap () {
+	var logger: ILogger = Debug.logger;
 	var heightmap : Texture2D = Selection.activeObject as Texture2D;
 	if (heightmap == null) { 
 		EditorUtility.DisplayDialog("No texture selected", "Please select a texture.", "Cancel"); 
@@ -63,11 +64,12 @@ static function ApplyHeightmap () {
 		// Use original if no resize is needed
 		map = mapColors;
 	}
- 
+ 	var min = 1.0;
 	// Assign texture data to heightmap
 	for (y = 0; y < w2; y++) {
 		for (x = 0; x < w2; x++) {
-			heightmapData[y,x] = map[y*w2+x].grayscale;
+			var height = map[y*w2+x].grayscale/4;
+			heightmapData[y,x] = height;
 		}
 	}
 	terrain.SetHeights(0, 0, heightmapData);
