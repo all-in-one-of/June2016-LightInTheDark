@@ -14,6 +14,15 @@ ModelImporter:
     100012: Bone_005
     100014: Cylinder
     100016: //RootNode
+    100018: Hood
+    100020: Steam_3
+    100022: Steam_Base
+    100024: Stem_1
+    100026: Stem_2
+    100028: Stem_Top
+    100030: Mushroom_Mesh
+    100032: Mushroom_Rig
+    100034: Stem_Base
     400000: Armature
     400002: Bone
     400004: Bone_001
@@ -23,10 +32,21 @@ ModelImporter:
     400012: Bone_005
     400014: Cylinder
     400016: //RootNode
+    400018: Hood
+    400020: Steam_3
+    400022: Steam_Base
+    400024: Stem_1
+    400026: Stem_2
+    400028: Stem_Top
+    400030: Mushroom_Mesh
+    400032: Mushroom_Rig
+    400034: Stem_Base
     4300000: Cylinder
+    4300002: Mushroom_Mesh
     7400000: Default Take
     9500000: //RootNode
     13700000: Cylinder
+    13700002: Mushroom_Mesh
   materials:
     importMaterials: 1
     materialName: 0
