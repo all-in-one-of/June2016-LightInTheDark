@@ -16,15 +16,8 @@ public class PlayerVerticalMovement : MonoBehaviour {
 		_mover = GetComponent<PlayerMover> ();
 		_state = GetComponent<PlayerState> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		if (_state.CharController.isGrounded) {
-			_vertSpeed = 0;
-		} 
-
-		_vertSpeed += gravity * Time.deltaTime;
-
 		if (_state.CharController.isGrounded) {
 			_state.isJumping = false;
 			if (Input.GetButtonDown ("Jump")) {
@@ -32,6 +25,15 @@ public class PlayerVerticalMovement : MonoBehaviour {
 				_state.isJumping = true;
 			} 
 		} 
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+		if (!_state.isJumping && _state.CharController.isGrounded) {
+			_vertSpeed = 0;
+		} 
+
+		_vertSpeed += gravity * Time.deltaTime;
 
 		if (_vertSpeed < terminalVelocity) {
 			_vertSpeed = terminalVelocity;

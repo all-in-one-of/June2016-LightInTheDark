@@ -16,7 +16,7 @@ public class CharacterControllerJumper : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (_state.CharController.isGrounded) {
 			_state.isJumping = false;
 			if (Input.GetButtonDown ("Jump")) {
@@ -25,7 +25,9 @@ public class CharacterControllerJumper : MonoBehaviour {
 				_state.isJumping = true;
 			} 
 		} 
+	}
 
+	void FixedUpdate() {
 		Vector3 movement = Vector3.zero;
 		movement.y = _vertSpeed;
 		movement *= Time.deltaTime;

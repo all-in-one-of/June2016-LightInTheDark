@@ -23,26 +23,26 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 
 		float horInput = Input.GetAxis("Horizontal");
 		float vertInput = Input.GetAxis("Vertical");
-		if (horInput != 0 || vertInput != 0)
-		{
+		if (horInput != 0 || vertInput != 0) {
 			Vector3 look = new Vector3 (horInput * moveSpeed, 0, 0);
 			movement.z = vertInput * moveSpeed;
 
-			movement = Vector3.ClampMagnitude(movement, moveSpeed);
+			movement = Vector3.ClampMagnitude (movement, moveSpeed);
 			Quaternion tmp = transform.rotation;
 
-			transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-			movement = transform.TransformDirection(movement);
+			transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
+			movement = transform.TransformDirection (movement);
 			transform.rotation = tmp;
 
 			look.z = Mathf.Abs (look.z);
-			look = transform.TransformDirection(look);
-			Quaternion direction = Quaternion.LookRotation(transform.forward + look);
-			transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
+			look = transform.TransformDirection (look);
+			Quaternion direction = Quaternion.LookRotation (transform.forward + look);
+			transform.rotation = Quaternion.Lerp (transform.rotation, direction, rotSpeed * Time.deltaTime);
 			_state.isWalking = true;
+		} else {
+			_state.isWalking = false;
 		}
 
-		_state.isWalking = false;
 		_mover.addMovement(movement);
 	}
 }
