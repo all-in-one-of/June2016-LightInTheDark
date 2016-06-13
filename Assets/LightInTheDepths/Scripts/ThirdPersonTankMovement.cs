@@ -5,7 +5,7 @@ using System.Collections;
 
 public class ThirdPersonTankMovement : MonoBehaviour {
 	public float rotSpeed = 15.0f;
-	public float moveSpeed = 6.0f;
+	public float moveSpeed = 1.0f;
 
 	private float _vertSpeed;
 	private PlayerState _state;
@@ -21,11 +21,10 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 		float vertInput = Input.GetAxis("Vertical");
 		if (horInput != 0 || vertInput != 0)
 		{
-			movement.x = horInput * moveSpeed;
+			Vector3 look = new Vector3 (horInput * moveSpeed, 0, 0);
 			movement.z = vertInput * moveSpeed;
-			Vector3 look = movement;
-			movement = Vector3.ClampMagnitude(movement, moveSpeed);
 
+			movement = Vector3.ClampMagnitude(movement, moveSpeed);
 			Quaternion tmp = transform.rotation;
 
 			transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
