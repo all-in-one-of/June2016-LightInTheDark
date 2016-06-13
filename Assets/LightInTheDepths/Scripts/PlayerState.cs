@@ -34,7 +34,7 @@ public class PlayerState : MonoBehaviour {
 		}
 	}
 
-	bool isStandingStill() {
+	public bool isStandingStill() {
 		return !isPunching && !isWalking && !isJumping && !isDieing;
 	}
 }

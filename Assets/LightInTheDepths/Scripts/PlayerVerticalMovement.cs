@@ -1,31 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterControllerGravity : MonoBehaviour {
-	public float gravity = -80f;
+public class PlayerVerticalMovement : MonoBehaviour {
+	public float jumpSpeed = 100.0f;	
+	public float gravity = -200f;
 	public float terminalVelocity = -160.0f;
-	public float minFall = -1.5f;
 
 	private float _vertSpeed;
 	private PlayerState _state;
 	private PlayerMover _mover;
 
-	// Use this for initialization
 	void Start () {
 		_mover = GetComponent<PlayerMover> ();
 		_state = GetComponent<PlayerState> ();
 	}
-
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (_state.CharController.isGrounded) {
 			_vertSpeed = 0;
+		} else {
+			_vertSpeed += gravity * Time.deltaTime;
+			if (_vertSpeed < terminalVelocity) {
+				_vertSpeed = terminalVelocity;
+			}
 		}
-		_vertSpeed += gravity * Time.deltaTime;
-		if(_vertSpeed > terminalVelocity) {
-			_vertSpeed = terminalVelocity;
-		}
+
+		if (_state.CharController.isGrounded) {
+			_state.isJumping = false;
+			if (Input.GetButtonDown ("Jump")) {
+				_vertSpeed += jumpSpeed;
+				_state.isJumping = true;
+			} 
+		} 
 
 		Vector3 movement = Vector3.zero;
 		movement.y = _vertSpeed;

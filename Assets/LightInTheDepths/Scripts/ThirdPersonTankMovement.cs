@@ -8,9 +8,11 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 	public float moveSpeed = 1.0f;
 
 	private float _vertSpeed;
-	private PlayerState _state;
+	private PlayerState _state;	
+	private PlayerMover _mover;
 
 	void Start() {
+		_mover = GetComponent<PlayerMover> ();
 		_state = GetComponent<PlayerState> ();
 	}
 
@@ -39,6 +41,6 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 		}
 
 		_state.isWalking = false;
-		_state.CharController.Move(movement);
+		_mover.addMovement(movement);
 	}
 }
