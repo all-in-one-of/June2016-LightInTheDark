@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace LightInTheDark {
+
 [RequireComponent(typeof(CharacterController))]
 
 public class ThirdPersonTankMovement : MonoBehaviour {
@@ -43,4 +45,6 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 		_state.isWalking = false;
 		_mover.addMovement(movement);
 	}
+}
+
 }

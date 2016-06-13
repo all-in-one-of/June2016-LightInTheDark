@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace LightInTheDark {
+
 public class CharacterControllerJumper : MonoBehaviour {
 	public float jumpSpeed = 1500.0f;
 
@@ -31,4 +33,6 @@ public class CharacterControllerJumper : MonoBehaviour {
 		Debug.Log (movement);
 		_mover.addMovement(movement);
 	}
+}
+
 }

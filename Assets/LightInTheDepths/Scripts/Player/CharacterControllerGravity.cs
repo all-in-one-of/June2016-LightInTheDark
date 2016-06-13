@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace LightInTheDark {
+	
 public class CharacterControllerGravity : MonoBehaviour {
 	public float gravity = -80f;
 	public float terminalVelocity = -160.0f;
@@ -32,4 +34,6 @@ public class CharacterControllerGravity : MonoBehaviour {
 		movement *= Time.deltaTime;
 		_mover.addMovement(movement);
 	}
+	}
+
 }

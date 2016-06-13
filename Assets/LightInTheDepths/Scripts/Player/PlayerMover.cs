@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace LightInTheDark {
+
 public class PlayerMover : MonoBehaviour {
 	private Vector3 _nextMovement = Vector3.zero;
 	private PlayerState _state;
@@ -19,4 +21,6 @@ public class PlayerMover : MonoBehaviour {
 	public void addMovement(Vector3 movement) {
 		_nextMovement += movement;
 	}
+}
+
 }

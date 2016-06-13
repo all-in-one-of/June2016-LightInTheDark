@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace LightInTheDark {
+
 public class PlayerState : MonoBehaviour {
 	public bool isPunching = false;
 	public bool isWalking = false;
@@ -37,4 +39,6 @@ public class PlayerState : MonoBehaviour {
 	public bool isStandingStill() {
 		return !isPunching && !isWalking && !isJumping && !isDieing;
 	}
+}
+
 }
