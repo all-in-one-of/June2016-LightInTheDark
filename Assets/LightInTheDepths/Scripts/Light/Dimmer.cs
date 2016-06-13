@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace LightInTheDark {
 
+[RequireComponent(typeof(LightController))]
 public class Dimmer : MonoBehaviour {
 	public enum DimmerType {
 		Distance,

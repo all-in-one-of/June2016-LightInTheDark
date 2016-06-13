@@ -3,6 +3,8 @@ using System.Collections;
 
 namespace LightInTheDark {
 
+[RequireComponent(typeof(PlayerState))]
+[RequireComponent(typeof(PlayerMover))]
 public class PlayerVerticalMovement : MonoBehaviour {
 	public float jumpSpeed = 100.0f;	
 	public float gravity = -200f;

@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace LightInTheDark {
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerState : MonoBehaviour {
 	public bool isPunching = false;
 	public bool isWalking = false;

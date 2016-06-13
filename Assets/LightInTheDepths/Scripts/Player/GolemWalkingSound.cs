@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace LightInTheDark {
 
+[RequireComponent(typeof(PlayerState))]
 public class GolemWalkingSound : MonoBehaviour {
 	[SerializeField]
 	private AudioSource _walkingSource;

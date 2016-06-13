@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace LightInTheDark {
 
+[RequireComponent(typeof(PlayerState))]
 public class PlayerMover : MonoBehaviour {
 	private Vector3 _nextMovement = Vector3.zero;
 	private PlayerState _state;

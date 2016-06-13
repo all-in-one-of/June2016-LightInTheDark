@@ -3,8 +3,8 @@ using System.Collections;
 
 namespace LightInTheDark {
 
-[RequireComponent(typeof(CharacterController))]
-
+[RequireComponent(typeof(PlayerState))]
+[RequireComponent(typeof(PlayerMover))]
 public class ThirdPersonTankMovement : MonoBehaviour {
 	public float rotSpeed = 15.0f;
 	public float moveSpeed = 1.0f;
