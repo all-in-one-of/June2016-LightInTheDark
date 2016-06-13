@@ -7,16 +7,17 @@ public class OrbitCamera : MonoBehaviour {
 	public float rotSpeed = 4f;
 	public float lookSpeed = 0.5f;
 
-	private float _rotY;
-	private float _offsetY;
-	private Vector3 _offset;
-	private static float OFFSET_MAX = 45;
-	private static float OFFSET_MIN = -OFFSET_MAX;
+	public float offsetMin = 6;
+	public float offsetMax = 8;
 
+	private float _rotY;
+	private float _rotationOffsetY;
+	private Vector3 _positionOffset;
 
     void Start() {
         _rotY = transform.eulerAngles.y;
-        _offset = target.position - transform.position;
+        _positionOffset = target.position - transform.position;
+		_rotationOffsetY = Mathf.Clamp (_rotationOffsetY, offsetMin, offsetMax);
     }
 
     void LateUpdate() {
@@ -25,14 +26,13 @@ public class OrbitCamera : MonoBehaviour {
         }
 
 		if (Input.GetAxis("Mouse Y") != 0){
-			_offsetY += Input.GetAxis("Mouse Y") * lookSpeed;
-			_offsetY = Mathf.Min (_offsetY, OFFSET_MAX);
-			_offsetY = Mathf.Max (_offsetY, OFFSET_MIN);
+			_rotationOffsetY += Input.GetAxis("Mouse Y") * lookSpeed;
+			_rotationOffsetY = Mathf.Clamp (_rotationOffsetY, offsetMin, offsetMax);
 		}
 
         Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
-        transform.position = target.position - (rotation * _offset);
+        transform.position = target.position - (rotation * _positionOffset);
 
-		transform.LookAt(target.position + _offsetY*Vector3.up);
+		transform.LookAt(target.position + _rotationOffsetY*Vector3.up);
     }
 }
