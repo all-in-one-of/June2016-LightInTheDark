@@ -10,12 +10,14 @@ public class Dimmer : MonoBehaviour {
 		Intensity
 	}
 
+	public float percentInPeriod;
+	public bool useTrigSmoothing;
 	public DimmerType type;
 	public float cyclePeriod = 1.0f;
 
 	private LightController _lightController;
 	private bool _increasing;
-	private float _percentInPeriod;
+	private float _percentDimmed;
 
 	// Use this for initialization
 	void Start () {
@@ -25,26 +27,42 @@ public class Dimmer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		UpdatePercentInPeriod ();
+		UpdatePercentDimmed ();
+		ClampPercent ();
 		UpdateLight ();
 	}
 
 	void UpdateLight() {
 		if (type == DimmerType.Distance) {
-			_lightController.SetDistanceToPercent (_percentInPeriod);
-			Debug.Log ("Setting dist to " + _percentInPeriod);
+			_lightController.SetDistanceToPercent (_percentDimmed);
 		} else {
-			_lightController.SetIntensityToPercent (_percentInPeriod);
+			_lightController.SetIntensityToPercent (_percentDimmed);
+		}
+	}
+
+	void UpdatePercentDimmed() {
+		if (useTrigSmoothing) {
+			float trigInput = percentInPeriod * Mathf.PI;
+			_percentDimmed = Mathf.Abs(Mathf.Sin (trigInput));
+		} else {
+			_percentDimmed = percentInPeriod;
 		}
 	}
 
 	void UpdatePercentInPeriod() {
-		_percentInPeriod += Time.deltaTime / cyclePeriod * ((_increasing) ? 1 : -1);
-		_percentInPeriod = Mathf.Clamp (_percentInPeriod, 0.0f, 1.0f);
+		float toAdd = Time.deltaTime / cyclePeriod;
+		toAdd *= (_increasing) ? 1 : -1;
+		percentInPeriod += toAdd;
 
-		if (_percentInPeriod >= 1.0f) {
+	}
+
+	void ClampPercent() {
+		percentInPeriod = Mathf.Clamp (percentInPeriod, 0.0f, 1.0f);
+
+		if (percentInPeriod >= 1.0f) {
 			_increasing = false;
 		}
-		if (_percentInPeriod <= 0.0f) {
+		if (percentInPeriod <= 0.0f) {
 			_increasing = true;
 		}
 	}
