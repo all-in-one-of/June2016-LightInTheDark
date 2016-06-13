@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class RelativeMovement : MonoBehaviour {
+public class HeavyThirdPersonTankMovementScript : MonoBehaviour {
     public float rotSpeed = 15.0f;
     public float moveSpeed = 6.0f;
     public float jumpSpeed = 15.0f;
@@ -41,9 +41,6 @@ public class RelativeMovement : MonoBehaviour {
             Quaternion direction = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
         }
-
-		RaycastHit hit;
-		bool hitGround =  _contact != null && Physics.Raycast(transform.position, Vector3.down, out hit, 0.15f);
 
 		if (_charController.isGrounded){
             if (Input.GetButtonDown("Jump")){
