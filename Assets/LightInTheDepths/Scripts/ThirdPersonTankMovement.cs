@@ -36,8 +36,10 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 			look = transform.TransformDirection(look);
 			Quaternion direction = Quaternion.LookRotation(transform.forward + look);
 			transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
+			_state.isWalking = true;
 		}
 
+		_state.isWalking = false;
 		_state.CharController.Move(movement);
 	}
 }
