@@ -29,14 +29,14 @@ public class PlayerState : MonoBehaviour {
 	}
 		
 	void Update() {
-		if (isStandingStill ()) {
+		if (IsStandingStill ()) {
 			_timeStandingStill += Time.deltaTime;
 		} else {
 			_timeStandingStill = 0;
 		}
 	}
 
-	public bool isStandingStill() {
+	public bool IsStandingStill() {
 		return !isPunching && !isWalking && !isJumping && !isDieing;
 	}
 }

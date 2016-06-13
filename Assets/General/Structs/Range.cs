@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public struct Range
+public struct Range 
 {
 	public float min;
 	public float max;

@@ -18,7 +18,7 @@ public class PlayerMover : MonoBehaviour {
 		_nextMovement.Set (0, 0, 0);
 	}
 
-	public void addMovement(Vector3 movement) {
+	public void AddMovement(Vector3 movement) {
 		_nextMovement += movement;
 	}
 }

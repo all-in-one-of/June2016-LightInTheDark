@@ -43,7 +43,7 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 			_state.isWalking = false;
 		}
 
-		_mover.addMovement(movement);
+		_mover.AddMovement(movement);
 	}
 }
 

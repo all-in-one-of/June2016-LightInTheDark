@@ -3,6 +3,7 @@ using System.Collections;
 
 public struct RangedValue
 {
+	[SerializeField]
 	private Range _valueRange;
 	private float _value;
 
@@ -25,6 +26,9 @@ public struct RangedValue
 		_value = _valueRange.getPercentInRange (percent);
 	}
 
+	public void setRange(Vector2 range) {
+		setRange (range.x, range.y);
+	}
 	public void setRange(float min, float max) {
 		_valueRange.min = min;
 		_valueRange.max = max;

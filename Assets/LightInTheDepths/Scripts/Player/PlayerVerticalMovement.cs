@@ -42,7 +42,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 		Vector3 movement = Vector3.zero;
 		movement.y = _vertSpeed;
 		movement *= Time.deltaTime;
-		_mover.addMovement(movement);
+		_mover.AddMovement(movement);
 	}
 }
 
