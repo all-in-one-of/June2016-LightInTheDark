@@ -14,6 +14,15 @@ public class LightController : MonoBehaviour {
 	private RangedValue _lightIntensity;
 	private RangedValue _lightDistance;
 
+	public bool IsLightEnabled {
+		get {
+			return _light.enabled;
+		}
+		set {
+			_light.enabled = value;
+		}
+	}
+
 	void Start () {
 		_lightIntensity.setRange (_intensityRange);
 		_lightIntensity.Value = _light.intensity;
@@ -35,9 +44,7 @@ public class LightController : MonoBehaviour {
 		return _light.range;
 	}
 
-	public void SetLightOn(bool enabled) {
-		_light.enabled = enabled;
-	}
+
 
 }
 
