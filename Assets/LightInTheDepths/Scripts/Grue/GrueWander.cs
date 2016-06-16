@@ -9,9 +9,9 @@ public class GrueWander : MonoBehaviour {
 	public MovementPriority priority = MovementPriority.LOW;
 	public float percentMaxSpeed = 0.33f;
 
-	public float distance = 5.0f;
-	public float radius = 1.0f;
-	public float jitter = 1.0f;
+	public float distance = 20.0f;
+	public float radius = 4.0f;
+	public float jitter = 2.0f;
 
 	private GrueState _state;
 	private GrueMovement _movementController;
@@ -37,7 +37,6 @@ public class GrueWander : MonoBehaviour {
 		toTarget.y = 0;
 		toTarget.Normalize ();
 
-		Debug.Log (_angle);
 		_movementController.AddMovement (percentMaxSpeed * _state.maxSpeed * toTarget, priority);
 	}
 

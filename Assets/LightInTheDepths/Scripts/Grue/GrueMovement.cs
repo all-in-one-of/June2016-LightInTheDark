@@ -24,6 +24,8 @@ public class GrueMovement : MonoBehaviour {
 		Vector3 movement = DecideTotalMovement ();
 		_state.CharController.Move (movement);
 
+		movement.y = 0;
+
 		transform.LookAt (transform.position + movement);
 		_movementRequests.Clear ();
 	}
@@ -36,7 +38,6 @@ public class GrueMovement : MonoBehaviour {
 		AddUntilOverMax (ref total, MovementPriority.HIGH);
 		AddUntilOverMax (ref total, MovementPriority.LOW);
 
-		float magSq = total.sqrMagnitude;
 		if (IsOverMax(total)) {
 			total.Normalize ();
 			total *= _state.maxSpeed;
