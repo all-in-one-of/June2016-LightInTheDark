@@ -6,7 +6,7 @@ namespace LightInTheDark {
 [RequireComponent(typeof(GrueMovement))]
 public class GrueHover : MonoBehaviour {
 	public float gravity = -200f;
-	public float hoverHeight = 1;
+	public float hoverHeight = 4;
 	public MovementPriority priority = MovementPriority.HIGH;
 
 	private float _vertSpeed = 0;

@@ -8,8 +8,8 @@ namespace LightInTheDark {
 public class GrueChase : MonoBehaviour {
 	public MovementPriority priority = MovementPriority.HIGH;
 	public float percentMaxSpeed = 0.8f;
-	public float aggroDistance = 5;
-	public float aggroDistanceBuffer = 1;
+	public float aggroDistance = 15;
+	public float aggroDistanceBuffer = 5;
 	public Transform target;
 
 	private GrueState _state;
