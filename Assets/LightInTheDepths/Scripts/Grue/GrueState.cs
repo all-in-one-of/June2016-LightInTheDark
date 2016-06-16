@@ -1,0 +1,23 @@
+﻿using UnityEngine;
+using System.Collections;
+
+namespace LightInTheDark {
+[RequireComponent(typeof(CharacterController))]
+public class GrueState : MonoBehaviour {
+	public bool isChasing = false;
+	public bool isDieing = false;
+
+	private CharacterController _charController;
+
+	public CharacterController CharController {
+		get {
+			return _charController;
+		}
+	}
+
+	void Awake () {
+		_charController = GetComponent<CharacterController> ();
+	}
+
+}
+}
