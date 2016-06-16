@@ -10,10 +10,8 @@ public enum MovementPriority {
 	LOW
 };
 
-
 [RequireComponent(typeof(GrueState))]
 public class GrueMovement : MonoBehaviour {
-	public float maxSpeed = 10;
 	private GrueState _state;
 	private Dictionary<MovementPriority, List<Vector3>> _movementRequests = new Dictionary<MovementPriority, List<Vector3>>();
 	// Use this for initialization
@@ -23,7 +21,10 @@ public class GrueMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		_state.CharController.Move (DecideTotalMovement());
+		Vector3 movement = DecideTotalMovement ();
+		_state.CharController.Move (movement);
+
+		transform.LookAt (transform.position + movement);
 		_movementRequests.Clear ();
 	}
 
@@ -38,14 +39,17 @@ public class GrueMovement : MonoBehaviour {
 		float magSq = total.sqrMagnitude;
 		if (IsOverMax(total)) {
 			total.Normalize ();
-			total *= maxSpeed;
+			total *= _state.maxSpeed;
 		}
 
-		return total;
+		return Time.deltaTime * total;
 	}
 
-	void AddUntilOverMax(ref Vector3 total, MovementPriority prio) {
-		foreach (Vector3 movement in _movementRequests[prio]) {
+	void AddUntilOverMax(ref Vector3 total, MovementPriority priority) {
+		if (!_movementRequests.ContainsKey(priority)) {
+			return;
+		}
+		foreach (Vector3 movement in _movementRequests[priority]) {
 			if (IsOverMax(total)) {
 				break;
 			}
@@ -54,12 +58,12 @@ public class GrueMovement : MonoBehaviour {
 	}
 
 	bool IsOverMax(Vector3 vec) {
-		return vec.sqrMagnitude > maxSpeed * maxSpeed;
+		return vec.sqrMagnitude > _state.maxSpeed * _state.maxSpeed;
 	}
 
 	public void AddMovement(Vector3 movement, MovementPriority priority) {
-		if (_movementRequests [priority] == null) {
-			_movementRequests [priority] = new List<Vector3> ();
+		if (!_movementRequests.ContainsKey(priority)) {
+			_movementRequests.Add(priority, new List<Vector3> ());
 		}
 		_movementRequests[priority].Add (movement);
 	}

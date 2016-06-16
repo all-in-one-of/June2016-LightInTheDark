@@ -6,6 +6,7 @@ namespace LightInTheDark {
 public class GrueState : MonoBehaviour {
 	public bool isChasing = false;
 	public bool isDieing = false;
+	public float maxSpeed = 10;
 
 	private CharacterController _charController;
 
