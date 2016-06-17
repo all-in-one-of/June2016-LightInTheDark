@@ -42,7 +42,7 @@ public class GrueAvoidLight : MonoBehaviour {
 		if (!light.isActiveAndEnabled) {
 			return;
 		}
-		float avoidDistance = light.range * 0.5f + desiredDistance;
+		float avoidDistance = light.range * 0.8f + desiredDistance;
 		float fleeDistance = avoidDistance + grayArea;
 
 		Vector3 fromLight = transform.position - light.transform.position;
