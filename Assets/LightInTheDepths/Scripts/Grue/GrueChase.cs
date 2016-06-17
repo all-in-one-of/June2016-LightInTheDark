@@ -23,6 +23,7 @@ public class GrueChase : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		transform.LookAt (target.position);
 		float effectiveAggro = aggroDistance;
 		if (_state.isChasing) {
 			effectiveAggro += aggroDistanceBuffer;
@@ -31,9 +32,10 @@ public class GrueChase : MonoBehaviour {
 
 		Vector3 toTarget = target.position - transform.position;
 		if (toTarget.sqrMagnitude > aggroDistanceSq) {
+			_state.isChasing = false;
 			return;
 		}
-
+		_state.isChasing = true;
 		toTarget.y = 0;
 		toTarget.Normalize ();
 		toTarget *= percentMaxSpeed * _state.maxSpeed;

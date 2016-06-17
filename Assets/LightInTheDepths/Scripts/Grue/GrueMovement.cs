@@ -26,7 +26,6 @@ public class GrueMovement : MonoBehaviour {
 
 		movement.y = 0;
 
-		transform.LookAt (transform.position + movement);
 		_movementRequests.Clear ();
 	}
 

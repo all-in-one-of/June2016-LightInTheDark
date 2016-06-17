@@ -10,11 +10,9 @@ public class GrueHover : MonoBehaviour {
 	public MovementPriority priority = MovementPriority.HIGH;
 
 	private float _vertSpeed = 0;
-	private GrueState _state;
 	private GrueMovement _movementController;
 
 	void Start () {
-		_state = GetComponent<GrueState> ();
 		_movementController = GetComponent<GrueMovement> ();
 	}
 
