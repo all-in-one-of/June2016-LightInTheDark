@@ -8,6 +8,7 @@ namespace LightInTheDark {
 public class GrueChase : MonoBehaviour {
 	public MovementPriority priority = MovementPriority.HIGH;
 	public float percentMaxSpeed = 0.8f;
+	public float lookDistance = 50;
 	public float aggroDistance = 15;
 	public float aggroDistanceBuffer = 5;
 	public Transform target;
@@ -27,15 +28,17 @@ public class GrueChase : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.LookAt (target.position);
 		float effectiveAggro = aggroDistance;
 		if (_state.isChasing) {
 			effectiveAggro += aggroDistanceBuffer;
 		}
-		float aggroDistanceSq = effectiveAggro * effectiveAggro;
 
 		Vector3 toTarget = target.position - transform.position;
-		if (toTarget.sqrMagnitude > aggroDistanceSq) {
+		float distSq = toTarget.sqrMagnitude;
+		if (distSq < lookDistance*lookDistance) {
+			transform.LookAt (target.position);
+		}
+		if (distSq > effectiveAggro * effectiveAggro) {
 			_state.isChasing = false;
 			return;
 		}

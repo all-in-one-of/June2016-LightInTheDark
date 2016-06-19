@@ -20,10 +20,10 @@ public class JumperLight : MonoBehaviour {
 
 	void OnPlayerCollision(ControllerColliderHit hit) {
 		Vector3 other = hit.controller.transform.position;
-
-		if (other.y > (transform.position.y + transform.lossyScale.y/2)) {
+		// TODO: Play sound
+		if (other.y > (transform.position.y + transform.lossyScale.y / 3)) {
 			_lightController.IsLightEnabled = true;
-		}
+		} 
 	}
 
 }

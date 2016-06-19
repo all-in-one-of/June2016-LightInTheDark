@@ -9,7 +9,7 @@ public class Dimmer : MonoBehaviour {
 		Distance,
 		Intensity
 	}
-
+	public bool randomizeStartPeriod = true;
 	public float percentInPeriod;
 	public bool useTrigSmoothing;
 	public DimmerType type;
@@ -22,6 +22,9 @@ public class Dimmer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_lightController = GetComponent<LightController> ();
+		if (randomizeStartPeriod) {
+			percentInPeriod = Random.value;
+		}
 	}
 	
 	// Update is called once per frame
