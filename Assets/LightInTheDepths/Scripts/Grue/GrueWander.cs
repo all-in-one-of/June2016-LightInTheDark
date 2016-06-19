@@ -9,6 +9,7 @@ public class GrueWander : MonoBehaviour {
 	public MovementPriority priority = MovementPriority.LOW;
 	public float percentMaxSpeed = 0.33f;
 
+	public bool randomFacingStart = true;
 	public float distance = 20.0f;
 	public float radius = 4.0f;
 	public float jitter = 2.0f;
@@ -22,6 +23,12 @@ public class GrueWander : MonoBehaviour {
 		_state = GetComponent<GrueState> ();
 		_movementController = GetComponent<GrueMovement> ();
 		_angle = GetRandomWithNeg() * Mathf.PI;
+
+		if (randomFacingStart) {
+			float randX = Random.value * 2 - 2;
+			float randZ = Random.value * 2 - 2;
+			transform.LookAt(transform.position + new Vector3(randX, 0, randZ));
+		}
 	}
 	
 	// Update is called once per frame
