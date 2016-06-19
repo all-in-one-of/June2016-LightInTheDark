@@ -19,6 +19,10 @@ public class GrueChase : MonoBehaviour {
 	void Start () {
 		_state = GetComponent<GrueState> ();
 		_movementController = GetComponent<GrueMovement> ();
+
+		if (target == null) {
+			target = GameObject.FindGameObjectWithTag ("Player").transform;
+		}
 	}
 
 	// Update is called once per frame

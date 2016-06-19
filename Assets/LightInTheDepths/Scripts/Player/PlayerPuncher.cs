@@ -6,7 +6,7 @@ namespace LightInTheDark {
 [RequireComponent(typeof(PlayerState))]
 public class PlayerPuncher : MonoBehaviour {
 	public float punchTime = 0.25f;
-	public float punchReach = 1;
+	public float punchReach = 3;
 
 	private PlayerState _state;	
 	private float _tillEndPunch = 0;

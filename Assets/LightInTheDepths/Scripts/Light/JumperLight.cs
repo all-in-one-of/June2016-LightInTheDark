@@ -12,7 +12,7 @@ public class JumperLight : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_lightController = GetComponent<LightController> ();
+		_lightController = GetComponentInParent<LightController> ();
 		if (isDisabledAtStart) {
 			_lightController.IsLightEnabled = false;
 		}

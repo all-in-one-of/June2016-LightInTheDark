@@ -39,7 +39,7 @@ public class GrueAvoidLight : MonoBehaviour {
 	}
 
 	void updateMovementFromLight (ref Vector3 movement, Light light) {
-		if (!light.isActiveAndEnabled) {
+		if (!light.isActiveAndEnabled || !HasLineOfSight(light.transform.position)) {
 			return;
 		}
 		float avoidDistance = light.range * 0.8f + desiredDistance;
@@ -58,6 +58,21 @@ public class GrueAvoidLight : MonoBehaviour {
 		fromLight *= speedPercent * _state.maxSpeed;
 
 		movement += fromLight;
+	}
+
+	bool HasLineOfSight (Vector3 position){
+		RaycastHit hit;
+
+		Vector3 ray = position - transform.position;
+		float dist = ray.magnitude;
+		if (dist != 0) {
+			ray /= dist;
+		}
+		if (!Physics.Raycast (transform.position, ray, out hit, dist)) {
+			return true;
+		}
+
+		return hit.collider.tag != "Ground" && hit.collider.tag != "Blocker";
 	}
 }
 }
