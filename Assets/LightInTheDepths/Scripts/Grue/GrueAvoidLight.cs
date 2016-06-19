@@ -28,7 +28,9 @@ public class GrueAvoidLight : MonoBehaviour {
 		Vector3 movement = Vector3.zero;
 
 		foreach(Light light in _sceneLights) {
-			updateMovementFromLight(ref movement, light);
+			if (light != null) {
+				updateMovementFromLight (ref movement, light);
+			}
 		}
 
 		if(movement == Vector3.zero) {
@@ -72,7 +74,7 @@ public class GrueAvoidLight : MonoBehaviour {
 			return true;
 		}
 
-		return hit.collider.tag != "Ground" && hit.collider.tag != "Blocker";
+		return (hit.collider.tag != "Ground" && hit.collider.tag != "Blocker");
 	}
 }
 }

@@ -14,10 +14,10 @@ public class LightRemote : MonoBehaviour {
 	
 	}
 	void OnDisable() {
-		Debug.Log ("Destroyed");
 		foreach(LightController controller in connectedLights) {
-			Debug.Log ("Disabling Light");
-			controller.IsLightEnabled = false;
+			if (controller != null) {
+				controller.IsLightEnabled = false;
+			}
 		}
 	}
 }
