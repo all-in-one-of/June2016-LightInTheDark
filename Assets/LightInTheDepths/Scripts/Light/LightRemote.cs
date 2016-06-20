@@ -2,7 +2,12 @@
 using System.Collections;
 
 namespace LightInTheDark {
+public enum StateChange {
+	Enable,
+	Disable
+}
 public class LightRemote : MonoBehaviour {
+	public StateChange lightStateToSet = StateChange.Disable;
 	public LightController[] connectedLights;
 	// Use this for initialization
 	void Start () {
@@ -16,7 +21,7 @@ public class LightRemote : MonoBehaviour {
 	void OnDisable() {
 		foreach(LightController controller in connectedLights) {
 			if (controller != null) {
-				controller.IsLightEnabled = false;
+				controller.IsLightEnabled = (lightStateToSet == StateChange.Enable);
 			}
 		}
 	}
