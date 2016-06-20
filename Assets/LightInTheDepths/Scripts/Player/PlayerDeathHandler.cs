@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace LightInTheDark {
 [RequireComponent(typeof(PlayerState))]
@@ -15,8 +16,7 @@ public class PlayerDeathHandler : MonoBehaviour {
 	void OnKilledByGrue() {
 		if (deathEnabled) {
 			_state.isDieing = true;
-			Application.Quit (); // TODO: Handle properly
-			UnityEditor.EditorApplication.isPlaying = false;
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 	}
 }
