@@ -5,6 +5,7 @@ namespace LightInTheDark {
 [RequireComponent(typeof(PlayerState))]
 [RequireComponent(typeof(Animator))]
 public class PlayerDeathHandler : MonoBehaviour {
+	public bool deathEnabled = true;
 	private PlayerState _state;	
 
 	void Start() {
@@ -12,9 +13,11 @@ public class PlayerDeathHandler : MonoBehaviour {
 	}
 
 	void OnKilledByGrue() {
-		_state.isDieing = true;
-		Application.Quit(); // TODO: Handle properly
-		UnityEditor.EditorApplication.isPlaying = false;
+		if (deathEnabled) {
+			_state.isDieing = true;
+			Application.Quit (); // TODO: Handle properly
+			UnityEditor.EditorApplication.isPlaying = false;
+		}
 	}
 }
 }
