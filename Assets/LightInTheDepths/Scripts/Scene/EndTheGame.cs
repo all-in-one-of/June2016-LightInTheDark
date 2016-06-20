@@ -17,7 +17,6 @@ public class EndTheGame : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		if (col.tag == "Player") {
 			Application.Quit ();
-			UnityEditor.EditorApplication.isPlaying = false;
 		}
 	}
 }
