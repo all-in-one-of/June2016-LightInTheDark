@@ -7,6 +7,7 @@ namespace LightInTheDark {
 public class PlayerPuncher : MonoBehaviour {
 	public float punchTime = 0.25f;
 	public float punchReach = 3;
+	public GameObject chest; 
 
 	private PlayerState _state;	
 	private float _tillEndPunch = 0;
@@ -41,7 +42,7 @@ public class PlayerPuncher : MonoBehaviour {
 	void TriggerPunchEffects() {
 		RaycastHit hit;
 
-		if (Physics.Raycast (transform.position, punchReach * transform.forward, out hit)) {
+		if (Physics.Raycast (chest.transform.position, punchReach * transform.forward, out hit)) {
 			GameObject hitObject = hit.collider.gameObject;
 			Breakable breakable = hitObject.GetComponent<Breakable> ();
 
