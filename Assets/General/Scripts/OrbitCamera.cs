@@ -4,9 +4,10 @@ using System.Collections;
 public class OrbitCamera : MonoBehaviour {
     [SerializeField] private Transform target;
 
-	public Vector3 posOffset = new Vector3(0,-3,7);
+	public Vector3 posOffset = new Vector3(0,3,-7);
 	public float rotSpeed = 4f;
 	public float lookSpeed = 0.5f;
+	public float initialRotation = 2.0f;
 
 	public float offsetMin = 6;
 	public float offsetMax = 8;
@@ -15,8 +16,12 @@ public class OrbitCamera : MonoBehaviour {
 	private float _rotationOffsetY;
 
     void Start() {
-        _rotY = transform.eulerAngles.y;
+		_rotationOffsetY = initialRotation;
 		_rotationOffsetY = Mathf.Clamp (_rotationOffsetY, offsetMin, offsetMax);
+
+		transform.position = target.position - target.transform.TransformDirection(posOffset);
+
+		transform.LookAt (target.position - transform.position + _rotationOffsetY * Vector3.up);
     }
 
     void FixedUpdate() {
@@ -30,9 +35,9 @@ public class OrbitCamera : MonoBehaviour {
 		}
 
         Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
-		transform.position = target.position - (rotation * posOffset);
+		transform.position = target.position - (rotation * target.transform.TransformVector(posOffset));
 
-		Quaternion targetRot = Quaternion.LookRotation ((target.position - transform.position) + _rotationOffsetY * Vector3.up);
+		Quaternion targetRot = Quaternion.LookRotation (target.position - transform.position + _rotationOffsetY * Vector3.up);
 		transform.rotation = Quaternion.Slerp (transform.rotation, targetRot, speedScale*Time.deltaTime);
     }
 }

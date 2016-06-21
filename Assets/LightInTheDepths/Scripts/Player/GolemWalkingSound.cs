@@ -25,6 +25,11 @@ public class GolemWalkingSound : MonoBehaviour {
 			_walkingSource.Stop ();
 		}
 	}
+
+	void OnExitLevel() {
+		_walkingSource.Stop ();
+		_walkingSource.volume = 0;
+	}
 		
 }
 
