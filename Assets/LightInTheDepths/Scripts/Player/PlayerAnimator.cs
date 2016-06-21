@@ -4,7 +4,6 @@ using System.Collections;
 namespace LightInTheDark {
 
 [RequireComponent(typeof(PlayerState))]
-[RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour {
 	private Animator _animator;
 	private PlayerState _state;	

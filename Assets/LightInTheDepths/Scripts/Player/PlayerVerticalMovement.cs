@@ -11,6 +11,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 	public float terminalVelocity = -160.0f;
 	public GameObject feet;
 
+	private bool _jumpPhysicsMode = false;
 	private float _tillEndJump = 0.0f;
 	private float _vertSpeed;
 	private PlayerState _state;
@@ -25,7 +26,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 		_tillEndJump -= Time.deltaTime;
 
 		if (_tillEndJump <= 0) {
-			_state.isJumping = false;
+			_jumpPhysicsMode = false;
 		}
 
 		if (!_state.isGrounded) {
@@ -35,6 +36,9 @@ public class PlayerVerticalMovement : MonoBehaviour {
 		if (Input.GetButtonDown ("Jump")) {
 			_tillEndJump = 0.1f;
 			_state.isJumping = true;
+			_jumpPhysicsMode = true; 
+		} else if (!_jumpPhysicsMode) {
+			_state.isJumping = false;
 		}
 	}
 	
@@ -42,7 +46,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 	void FixedUpdate () {
 		UpdatedGrounded ();
 
-		if (_state.isJumping) {
+		if (_jumpPhysicsMode) {
 			_vertSpeed = jumpSpeed;
 		}
 
@@ -57,7 +61,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 		movement *= Time.deltaTime;
 		_mover.AddMovement(movement);
 
-		if (!_state.isJumping && _state.isGrounded) {
+		if (!_jumpPhysicsMode && _state.isGrounded) {
 			_vertSpeed = 0;
 		} 
 	}

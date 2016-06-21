@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 namespace LightInTheDark {
 [RequireComponent(typeof(PlayerState))]
-[RequireComponent(typeof(Animator))]
 public class PlayerDeathHandler : MonoBehaviour {
 	public bool deathEnabled = true;
 	private PlayerState _state;	
