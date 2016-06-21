@@ -9,6 +9,7 @@ public class PlayerState : MonoBehaviour {
 	public bool isWalking = false;
 	public bool isJumping = false;
 	public bool isDieing = false;
+	public bool isGrounded = false;
 
 	private CharacterController _charController;
 	private float _timeStandingStill;
