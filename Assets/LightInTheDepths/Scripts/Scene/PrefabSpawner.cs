@@ -6,6 +6,7 @@ public class PrefabSpawner : MonoBehaviour {
 	public GameObject prefabToSpawn;
 
 	public Vector3 maxDistances;
+	bool randomYRotation = true;
 	public int minToSpawn = 1;
 	public int maxToSpawn = 1;
 
@@ -25,8 +26,11 @@ public class PrefabSpawner : MonoBehaviour {
 
 	void Spawn () { 
 		Vector3 offset = new Vector3(getOffset(maxDistances.x),getOffset(maxDistances.y),getOffset(maxDistances.z));
-
-		Instantiate(prefabToSpawn, transform.position + offset, transform.rotation);
+		Quaternion rot = transform.rotation;
+		if (randomYRotation) {
+			rot = Quaternion.Euler (0, Random.Range (-360, 360), 0) * rot;
+		}
+		Instantiate(prefabToSpawn, transform.position + offset, rot);
 	}
 
 	float getOffset (float maxDiff) {
