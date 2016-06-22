@@ -5,6 +5,8 @@ namespace LightInTheDark {
 
 public class LightController : MonoBehaviour {
 	[SerializeField]
+	public Material _unlitMaterial;
+	[SerializeField]
 	private Vector2 _intensityRange;
 	[SerializeField]
 	private Vector2 _lightDistanceRange;
@@ -13,6 +15,9 @@ public class LightController : MonoBehaviour {
 	private Light _light;
 	private RangedValue _lightIntensity;
 	private RangedValue _lightDistance;
+	private Material _origMaterial;
+	private Color _emissionColor;
+	private Renderer _renderer;
 
 	public bool IsLightEnabled {
 		get {
@@ -20,6 +25,7 @@ public class LightController : MonoBehaviour {
 		}
 		set {
 			_light.enabled = value;
+			updateEmission ();
 		}
 	}
 
@@ -29,8 +35,28 @@ public class LightController : MonoBehaviour {
 
 		_lightDistance.setRange (_lightDistanceRange);
 		_lightDistance.Value = _light.range;
+
+		_renderer = GetComponentInChildren<MeshRenderer> ();
+
+		if (_renderer != null) {
+			_origMaterial = _renderer.material;
+		}
+
+		updateEmission ();
+
 	}
 
+	void Update() {
+		updateEmission ();
+	}
+
+	public void updateEmission() {
+		if (_unlitMaterial == null || _renderer == null) {
+			return;
+		}
+
+		_renderer.material = _light.enabled ? _origMaterial : _unlitMaterial;
+	}
 
 	public float SetIntensityToPercent(float percent) {
 		_lightIntensity.setPercentTo(percent);
