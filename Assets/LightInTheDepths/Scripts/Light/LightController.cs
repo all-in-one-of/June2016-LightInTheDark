@@ -18,6 +18,7 @@ public class LightController : MonoBehaviour {
 	private Material _origMaterial;
 	private Color _emissionColor;
 	private Renderer _renderer;
+	private Vector3 _origScale;
 
 	public bool IsLightEnabled {
 		get {
@@ -41,6 +42,8 @@ public class LightController : MonoBehaviour {
 		if (_renderer != null) {
 			_origMaterial = _renderer.material;
 		}
+
+		_origScale = transform.localScale;
 
 		updateEmission ();
 
@@ -66,12 +69,11 @@ public class LightController : MonoBehaviour {
 	public float SetDistanceToPercent(float percent) {
 		_lightDistance.setPercentTo(percent);
 
+		transform.localScale = _origScale * (1.25f - (1 - percent)/2);
+
 		_light.range = _lightDistance.Value;
 		return _light.range;
 	}
-
-
-
 }
 
 }

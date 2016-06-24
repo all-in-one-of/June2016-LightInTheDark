@@ -5,7 +5,7 @@ public class Setup : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		Cursor.visible = false;
+		//Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
