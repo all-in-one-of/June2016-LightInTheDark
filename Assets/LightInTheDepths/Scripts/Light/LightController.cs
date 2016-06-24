@@ -19,6 +19,7 @@ public class LightController : MonoBehaviour {
 	private Color _emissionColor;
 	private Renderer _renderer;
 	private Vector3 _origScale;
+	private float _amountChange;
 
 	public bool IsLightEnabled {
 		get {
@@ -36,6 +37,9 @@ public class LightController : MonoBehaviour {
 
 		_lightDistance.setRange (_lightDistanceRange);
 		_lightDistance.Value = _light.range;
+
+		_amountChange = _lightDistanceRange.y - _lightDistanceRange.x;
+		_amountChange /= 50;
 
 		_renderer = GetComponentInChildren<MeshRenderer> ();
 
@@ -67,10 +71,13 @@ public class LightController : MonoBehaviour {
 		return _light.intensity;
 	}
 	public float SetDistanceToPercent(float percent) {
+		float scaleDiff = _amountChange * 0.125f;
+		float baseScale = 1 + scaleDiff/2;
+
+		transform.localScale = _origScale * (baseScale - (1 - percent) * scaleDiff);
+
+
 		_lightDistance.setPercentTo(percent);
-
-		transform.localScale = _origScale * (1.25f - (1 - percent)/2);
-
 		_light.range = _lightDistance.Value;
 		return _light.range;
 	}
