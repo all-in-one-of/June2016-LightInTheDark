@@ -19,11 +19,7 @@ public class GureKillPlayer : MonoBehaviour {
 			KillPlayer ();
 		}
 	}
-
-	void OnPlayerCollision(ControllerColliderHit hit) {
-		KillPlayer ();
-	}
-
+		
 	void KillPlayer() {
 		_player.SendMessage ("OnKilledByGrue");
 	}

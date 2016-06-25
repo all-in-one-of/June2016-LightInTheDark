@@ -18,5 +18,12 @@ public class PlayerDeathHandler : MonoBehaviour {
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 	}
+
+	void OnKilledByTenticle() {
+		if (deathEnabled) {
+			_state.isDieing = true;
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		}
+	}
 }
 }

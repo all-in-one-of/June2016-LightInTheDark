@@ -8,10 +8,15 @@ public class TenticleAttack : MonoBehaviour {
 	public float tenticleSpeedUp = 100;
 	public float tenticleSpeedDown = 10;
 	public float tenticleAttackHeight = 5;
+	public bool randomStartPercent = true;
 	private TenticleState _state;
 	// Use this for initialization
 	void Start () {
 		_state = GetComponent<TenticleState> ();
+
+		if (randomStartPercent) {
+			_state.tillNextAttack = Random.value * _state.attackFrequency;
+		}
 	}
 
 	// Update is called once per frame
