@@ -34,7 +34,7 @@ public class TenticleAttack : MonoBehaviour {
 	IEnumerator AttackRoutine() {
 		float totalTime = _state.attackDuration;
 		Vector3 origPosition = tenticleArms.transform.position;
-		Vector3 movement = tenticleAttackHeight * transform.InverseTransformDirection (Vector3.up);
+		Vector3 movement = tenticleAttackHeight * Vector3.up;
 		Vector3 attackPosition = tenticleArms.transform.position + movement;
 		float dist = movement.magnitude;
 		float moveTimeUp = dist / tenticleSpeedUp;
