@@ -51,8 +51,7 @@ public class PlayerPuncher : MonoBehaviour {
 			}
 		}
 
-
-		hits = Physics.RaycastAll (chest.transform.position, 2 * punchReach * transform.forward);
+		hits = Physics.RaycastAll (chest.transform.position, 3 * punchReach * transform.forward);
 
 		foreach (RaycastHit hit in hits) {
 			GameObject hitObject = hit.collider.gameObject;
