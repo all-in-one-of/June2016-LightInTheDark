@@ -12,6 +12,7 @@ public class GrueChase : MonoBehaviour {
 	public float aggroDistance = 15;
 	public float aggroDistanceBuffer = 5;
 	public Transform target;
+	public AudioSource growlSource;
 
 	private GrueState _state;
 	private GrueMovement _movementController;
@@ -42,7 +43,12 @@ public class GrueChase : MonoBehaviour {
 			_state.isChasing = false;
 			return;
 		}
-		_state.isChasing = true;
+
+		if (!_state.isChasing) {
+			growlSource.Play ();
+			_state.isChasing = true;
+		}
+
 		toTarget.y = 0;
 		toTarget.Normalize ();
 		toTarget *= percentMaxSpeed * _state.maxSpeed;

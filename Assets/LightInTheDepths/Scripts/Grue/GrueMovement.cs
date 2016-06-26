@@ -20,7 +20,7 @@ public class GrueMovement : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void LateUpdate () {
 		Vector3 movement = DecideTotalMovement ();
 		_state.CharController.Move (movement);
 

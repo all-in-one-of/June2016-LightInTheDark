@@ -49,11 +49,11 @@ public class GrueAvoidLight : MonoBehaviour {
 
 		Vector3 fromLight = transform.position - light.transform.position;
 		float distSq = fromLight.sqrMagnitude;
-		if (distSq > avoidDistance*avoidDistance) {
+		if (distSq > fleeDistance*fleeDistance) {
 			return; // Outside avoid range
 		}
 
-		bool fleeing = distSq > fleeDistance*fleeDistance;
+		bool fleeing = distSq > avoidDistance*avoidDistance;
 		float speedPercent = fleeing ? fleeSpeedPercent : 1.0f;
 		fromLight.y = 0;
 		fromLight.Normalize ();
