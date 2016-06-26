@@ -11,9 +11,14 @@ public class GrueChase : MonoBehaviour {
 	public float lookDistance = 50;
 	public float aggroDistance = 15;
 	public float aggroDistanceBuffer = 5;
+	public float timeBetweenGrowls = 1f;
 	public Transform target;
 	public AudioSource growlSource;
+	public AudioSource bigGrowlSource;
 
+	private static float _lastGrowlTime = 0;
+	private static float _lastBigGrowlTime = 0;
+	private bool _wasLooking = false;
 	private GrueState _state;
 	private GrueMovement _movementController;
 
@@ -21,7 +26,6 @@ public class GrueChase : MonoBehaviour {
 	void Start () {
 		_state = GetComponent<GrueState> ();
 		_movementController = GetComponent<GrueMovement> ();
-
 		if (target == null) {
 			target = GameObject.FindGameObjectWithTag ("Player").transform;
 		}
@@ -38,6 +42,16 @@ public class GrueChase : MonoBehaviour {
 		float distSq = toTarget.sqrMagnitude;
 		if (distSq < lookDistance*lookDistance) {
 			transform.LookAt (target.position);
+
+			if (!_wasLooking) {
+				if (Time.time - _lastGrowlTime > timeBetweenGrowls) {
+					growlSource.Play ();
+					_lastGrowlTime = Time.time;
+				}
+				_wasLooking = true;
+			}
+		} else {
+			_wasLooking = false;
 		}
 		if (distSq > effectiveAggro * effectiveAggro) {
 			_state.isChasing = false;
@@ -45,7 +59,10 @@ public class GrueChase : MonoBehaviour {
 		}
 
 		if (!_state.isChasing) {
-			growlSource.Play ();
+			if (Time.time - _lastBigGrowlTime > timeBetweenGrowls) {
+				_lastBigGrowlTime = Time.time;
+				bigGrowlSource.Play ();
+			}
 			_state.isChasing = true;
 		}
 
