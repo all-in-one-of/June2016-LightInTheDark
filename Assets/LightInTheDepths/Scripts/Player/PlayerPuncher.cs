@@ -40,14 +40,26 @@ public class PlayerPuncher : MonoBehaviour {
 	}
 
 	void TriggerPunchEffects() {
-		RaycastHit hit;
+		RaycastHit[] hits = Physics.RaycastAll (chest.transform.position, punchReach * transform.forward);
 
-		if (Physics.Raycast (chest.transform.position, punchReach * transform.forward, out hit)) {
+		foreach(RaycastHit hit in hits) {
 			GameObject hitObject = hit.collider.gameObject;
 			Breakable breakable = hitObject.GetComponent<Breakable> ();
 
 			if (breakable != null) {
 				breakable.Break ();
+			}
+		}
+
+
+		hits = Physics.RaycastAll (chest.transform.position, 2 * punchReach * transform.forward);
+
+		foreach (RaycastHit hit in hits) {
+			GameObject hitObject = hit.collider.gameObject;
+			Punchable punchable = hitObject.GetComponent<Punchable> ();
+
+			if (punchable != null) {
+				punchable.OnPunched (transform.position);
 			}
 		}
 	}
