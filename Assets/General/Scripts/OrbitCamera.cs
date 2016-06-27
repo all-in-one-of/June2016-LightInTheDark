@@ -30,12 +30,12 @@ public class OrbitCamera : MonoBehaviour {
         }
 
 		if (Input.GetAxis("Mouse Y") != 0){
-			_rotationOffsetY += Input.GetAxis("Mouse Y") * lookSpeed;
+			_rotationOffsetY -= Input.GetAxis("Mouse Y") * lookSpeed;
 			_rotationOffsetY = Mathf.Clamp (_rotationOffsetY, offsetMin, offsetMax);
 		}
 
         Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
-		transform.position = target.position - (rotation * target.transform.TransformVector(posOffset)) + + _rotationOffsetY * Vector3.up;
+		transform.position = target.position - (rotation * target.transform.TransformVector(posOffset)) + _rotationOffsetY * Vector3.up;
 
 		Quaternion targetRot = Quaternion.LookRotation (target.position);
 		transform.rotation = Quaternion.Slerp (transform.rotation, targetRot, speedScale*Time.deltaTime);
