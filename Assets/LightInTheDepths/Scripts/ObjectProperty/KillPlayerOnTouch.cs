@@ -12,7 +12,7 @@ public class KillPlayerOnTouch : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if(_collider.bounds.Contains(_player.transform.position)) {
 			_player.SendMessage ("OnKilledByTenticle");
 		}

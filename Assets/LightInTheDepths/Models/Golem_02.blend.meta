@@ -8,9 +8,17 @@ ModelImporter:
     100000: //RootNode
     100002: Circle
     100004: Sphere
+    100006: Armature
+    100008: Chest
+    100010: Head
+    100012: Pelvis
     400000: //RootNode
     400002: Circle
     400004: Sphere
+    400006: Armature
+    400008: Chest
+    400010: Head
+    400012: Pelvis
     2300000: //RootNode
     2300002: Circle
     2300004: Sphere

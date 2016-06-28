@@ -13,9 +13,8 @@ public class StartToContinue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Accept")) {
+		if (Input.anyKeyDown) {
 			Debug.Log ("Enter pressed");
-			text.text = "Loading...";
 			text.SetAllDirty ();
 			_loadOp.allowSceneActivation = true;			
 		}
