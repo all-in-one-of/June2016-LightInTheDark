@@ -7,7 +7,7 @@ public class StartToContinue : MonoBehaviour {
 	private AsyncOperation _loadOp;
 	// Use this for initialization
 	void Start () {
-		_loadOp = SceneManager.LoadSceneAsync (0);
+		_loadOp = SceneManager.LoadSceneAsync (1);
 		_loadOp.allowSceneActivation = false;
 	}
 	
