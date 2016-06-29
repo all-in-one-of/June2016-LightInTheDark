@@ -12,6 +12,23 @@ ModelImporter:
     100008: Chest
     100010: Head
     100012: Pelvis
+    100014: Bone
+    100016: Bone_001
+    100018: Bone_002
+    100020: Bone_003
+    100022: Bone_004
+    100024: Bone_005
+    100026: Bone_006
+    100028: L_Arm_Hand
+    100030: L_Arm_Lower
+    100032: L_Arm_Upper
+    100034: L_Leg_Lower
+    100036: L_Leg_Upper
+    100038: R_Arm_Hand
+    100040: R_Arm_Lower
+    100042: R_Arm_Upper
+    100044: R_Leg_Lower
+    100046: R_Leg_Upper
     400000: //RootNode
     400002: Circle
     400004: Sphere
@@ -19,6 +36,23 @@ ModelImporter:
     400008: Chest
     400010: Head
     400012: Pelvis
+    400014: Bone
+    400016: Bone_001
+    400018: Bone_002
+    400020: Bone_003
+    400022: Bone_004
+    400024: Bone_005
+    400026: Bone_006
+    400028: L_Arm_Hand
+    400030: L_Arm_Lower
+    400032: L_Arm_Upper
+    400034: L_Leg_Lower
+    400036: L_Leg_Upper
+    400038: R_Arm_Hand
+    400040: R_Arm_Lower
+    400042: R_Arm_Upper
+    400044: R_Leg_Lower
+    400046: R_Leg_Upper
     2300000: //RootNode
     2300002: Circle
     2300004: Sphere
@@ -29,6 +63,7 @@ ModelImporter:
     4300002: Sphere
     7400000: Default Take
     9500000: //RootNode
+    13700000: Sphere
   materials:
     importMaterials: 1
     materialName: 0
