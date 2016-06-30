@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class StartToContinue : MonoBehaviour {
-	public UnityEngine.UI.Text text;	
 	private AsyncOperation _loadOp;
 	// Use this for initialization
 	void Start () {
@@ -14,8 +13,6 @@ public class StartToContinue : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.anyKeyDown) {
-			Debug.Log ("Enter pressed");
-			text.SetAllDirty ();
 			_loadOp.allowSceneActivation = true;			
 		}
 	}

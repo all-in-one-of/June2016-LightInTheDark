@@ -14,7 +14,20 @@ public class SceneChanger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			other.SendMessage ("OnExitLevel");
-			_loadOp.allowSceneActivation = true;
+
+			StartCoroutine ("StartTransition", other.gameObject);
 		}
+	}
+
+	IEnumerator StartTransition(GameObject player) {
+		Camera cam = GameObject.FindObjectOfType<Camera> ();
+		OrbitCamera orbit = cam.GetComponent<OrbitCamera> ();
+		if (orbit != null) {
+			Destroy (orbit);
+		}
+		LookAt look = cam.gameObject.AddComponent<LookAt> ();
+		look.toLookAt = player.transform;
+		yield return new WaitForSeconds(1.0f);
+		_loadOp.allowSceneActivation = true;
 	}
 }
