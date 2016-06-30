@@ -8,7 +8,6 @@ namespace LightInTheDark {
 public class GrueWander : MonoBehaviour {
 	public MovementPriority priority = MovementPriority.LOW;
 	public float percentMaxSpeed = 0.33f;
-
 	public float distance = 20.0f;
 	public float radius = 4.0f;
 	public float jitter = 2.0f;

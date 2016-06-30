@@ -9,6 +9,8 @@ public class TenticleAttack : MonoBehaviour {
 	public float tenticleSpeedDown = 10;
 	public float tenticleAttackHeight = 5;
 	public bool randomStartPercent = true;
+	public AudioSource attackSound;
+
 	private TenticleState _state;
 	// Use this for initialization
 	void Start () {
@@ -28,6 +30,7 @@ public class TenticleAttack : MonoBehaviour {
 
 	void StartAttack() {
 		_state.attacking = true;
+		attackSound.Play ();
 		StartCoroutine ("AttackRoutine");
 	}
 
