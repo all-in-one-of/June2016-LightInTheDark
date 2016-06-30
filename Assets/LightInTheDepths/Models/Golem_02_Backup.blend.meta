@@ -41,6 +41,7 @@ ModelImporter:
     7400000: Default Take
     7400002: GolemAnim_Run
     7400004: GolemAnim_Jump
+    7400006: GolemAnim_Run_loop
     9500000: //RootNode
     13700000: Sphere
   materials:
@@ -63,7 +64,187 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: GolemAnim_Run_loop
+      takeName: GolemAnim_Run
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Chest
+        weight: 1
+      - path: Armature/Pelvis/Chest/Head
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower/L_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower/R_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper/L_Leg_Lower
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper/R_Leg_Lower
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GolemAnim_Jump
+      takeName: GolemAnim_Jump
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Chest
+        weight: 1
+      - path: Armature/Pelvis/Chest/Head
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower/L_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower/R_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper/L_Leg_Lower
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper/R_Leg_Lower
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GolemAnim_Run
+      takeName: GolemAnim_Run
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Chest
+        weight: 1
+      - path: Armature/Pelvis/Chest/Head
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower/L_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower/R_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper/L_Leg_Lower
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper/R_Leg_Lower
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
