@@ -28,7 +28,7 @@ public class GrueWander : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isFacingWall ()) {
-			transform.LookAt (transform.position + (3*transform.forward + transform.right));
+			transform.LookAt (transform.position - transform.forward);
 		}
 		_angle += jitter * Time.deltaTime * GetRandomWithNeg ();
 
@@ -46,8 +46,13 @@ public class GrueWander : MonoBehaviour {
 
 	bool isFacingWall() {
 		RaycastHit hit;
-		if (!Physics.Raycast (transform.position, transform.forward, out hit, 4)) {
+		bool gotOne = Physics.Raycast (transform.position, transform.forward, out hit, 8) || Physics.Raycast (transform.position, 3 * transform.forward - transform.up, out hit, 4);
+		if (!gotOne) {
 			return false;
+		}
+
+		if (hit.collider.tag == "Wall") {
+			Debug.Log ("Hit wall!");
 		}
 
 		return hit.collider.tag != "Player" && hit.collider.tag != "Grue";
