@@ -1,68 +1,46 @@
 fileFormatVersion: 2
-guid: dec323d16d91c5a42bc8d853a8ba9bc1
-timeCreated: 1466962871
+guid: a637bb0015a0bf040a2729a412e0c6c9
+timeCreated: 1467269403
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Circle
-    100004: Sphere
-    100006: Armature
-    100008: Chest
-    100010: Head
-    100012: Pelvis
-    100014: Bone
-    100016: Bone_001
-    100018: Bone_002
-    100020: Bone_003
-    100022: Bone_004
-    100024: Bone_005
-    100026: Bone_006
-    100028: L_Arm_Hand
-    100030: L_Arm_Lower
-    100032: L_Arm_Upper
-    100034: L_Leg_Lower
-    100036: L_Leg_Upper
-    100038: R_Arm_Hand
-    100040: R_Arm_Lower
-    100042: R_Arm_Upper
-    100044: R_Leg_Lower
-    100046: R_Leg_Upper
-    400000: //RootNode
-    400002: Circle
-    400004: Sphere
-    400006: Armature
-    400008: Chest
-    400010: Head
-    400012: Pelvis
-    400014: Bone
-    400016: Bone_001
-    400018: Bone_002
-    400020: Bone_003
-    400022: Bone_004
-    400024: Bone_005
-    400026: Bone_006
-    400028: L_Arm_Hand
-    400030: L_Arm_Lower
-    400032: L_Arm_Upper
-    400034: L_Leg_Lower
-    400036: L_Leg_Upper
-    400038: R_Arm_Hand
-    400040: R_Arm_Lower
-    400042: R_Arm_Upper
-    400044: R_Leg_Lower
-    400046: R_Leg_Upper
-    2300000: //RootNode
-    2300002: Circle
-    2300004: Sphere
-    3300000: //RootNode
-    3300002: Circle
-    3300004: Sphere
-    4300000: Circle
-    4300002: Sphere
+    100000: Armature
+    100002: Chest
+    100004: //RootNode
+    100006: Head
+    100008: L_Arm_Hand
+    100010: L_Arm_Lower
+    100012: L_Arm_Upper
+    100014: L_Leg_Lower
+    100016: L_Leg_Upper
+    100018: Pelvis
+    100020: R_Arm_Hand
+    100022: R_Arm_Lower
+    100024: R_Arm_Upper
+    100026: R_Leg_Lower
+    100028: R_Leg_Upper
+    100030: Sphere
+    400000: Armature
+    400002: Chest
+    400004: //RootNode
+    400006: Head
+    400008: L_Arm_Hand
+    400010: L_Arm_Lower
+    400012: L_Arm_Upper
+    400014: L_Leg_Lower
+    400016: L_Leg_Upper
+    400018: Pelvis
+    400020: R_Arm_Hand
+    400022: R_Arm_Lower
+    400024: R_Arm_Upper
+    400026: R_Leg_Lower
+    400028: R_Leg_Upper
+    400030: Sphere
+    4300000: Sphere
     7400000: Default Take
     7400002: GolemAnim_Run
+    7400004: GolemAnim_Jump
     9500000: //RootNode
     13700000: Sphere
   materials:
