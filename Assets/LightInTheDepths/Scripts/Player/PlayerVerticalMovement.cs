@@ -10,6 +10,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 	public float gravity = -200f;
 	public float terminalVelocity = -160.0f;
 	public GameObject feet;
+	public AudioSource landingSource;
 
 	private bool _jumpPhysicsMode = false;
 	private float _tillEndJump = 0.0f;
@@ -37,8 +38,9 @@ public class PlayerVerticalMovement : MonoBehaviour {
 			_tillEndJump = 0.1f;
 			_state.isJumping = true;
 			_jumpPhysicsMode = true; 
-		} else if (!_jumpPhysicsMode) {
+		} else if (!_jumpPhysicsMode && _state.isJumping) {
 			_state.isJumping = false;
+			landingSource.Play ();
 		}
 	}
 	

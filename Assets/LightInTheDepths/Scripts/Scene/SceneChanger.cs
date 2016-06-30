@@ -32,7 +32,7 @@ public class SceneChanger : MonoBehaviour {
 
 	IEnumerator StartIntro(GameObject player) {
 		if (player == null) {
-			return true;
+			yield break;
 		}
 		player.SendMessage ("OnStartWalkForward");
 		yield return new WaitForSeconds(introTime);
@@ -42,7 +42,7 @@ public class SceneChanger : MonoBehaviour {
 	IEnumerator StartTransition(GameObject player) {
 		if (player == null) {
 			_loadOp.allowSceneActivation = true;
-			return true;
+			yield break;
 		}
 		player.SendMessage ("OnStartWalkForward");
 		Camera cam = GameObject.FindObjectOfType<Camera> ();
