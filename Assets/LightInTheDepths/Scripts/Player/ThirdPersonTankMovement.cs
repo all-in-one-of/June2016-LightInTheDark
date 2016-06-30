@@ -12,7 +12,7 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 	private float _vertSpeed;
 	private PlayerState _state;	
 	private PlayerMover _mover;
-	private bool _exitingLevel = false;
+	private bool _forceMarch = false;
 
 	void Start() {
 		_mover = GetComponent<PlayerMover> ();
@@ -26,7 +26,7 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 		float horInput = Input.GetAxis("Horizontal");
 		float vertInput = Input.GetAxis("Vertical");
 
-		if(_exitingLevel) {
+		if(_forceMarch) {
 			vertInput = 1;
 			horInput = 0;
 		}
@@ -53,8 +53,12 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 		_mover.AddMovement(movement);
 	}
 
-	void OnExitLevel() {
-		_exitingLevel = true;
+	void OnStartWalkForward() {
+		_forceMarch = true;
+	}
+
+	void OnStopWalkForward() {
+		_forceMarch = false;
 	}
 
 }

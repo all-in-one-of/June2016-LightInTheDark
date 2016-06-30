@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class OrbitCamera : MonoBehaviour {
-    [SerializeField] private Transform target;
-
+    public Transform target;
 	public Vector3 posOffset = new Vector3(0,3,-7);
 	public float rotSpeed = 4f;
 	public float lookSpeed = 0.5f;
