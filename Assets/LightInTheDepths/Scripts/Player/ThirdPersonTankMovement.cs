@@ -20,16 +20,21 @@ public class ThirdPersonTankMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		
+		if (_state.isDieing) {
+			_state.isWalking = false;
+			
+			return;
+		}
 		Vector3 movement = Vector3.zero;
 
 		float horInput = Input.GetAxis("Horizontal");
 		float vertInput = Input.GetAxis("Vertical");
 
-		if(_forceMarch) {
+		 if(_forceMarch) {
 			vertInput = 1;
 			horInput = 0;
 		}
+
 		if (horInput != 0 || vertInput != 0) {
 			Vector3 look = new Vector3 (horInput * moveSpeed, 0, 0);
 			movement.z = vertInput * moveSpeed;

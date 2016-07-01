@@ -11,7 +11,6 @@ public class SceneChanger : MonoBehaviour {
 
 	private AsyncOperation _loadOp;
 	void Start() {
-		
 		_loadOp = SceneManager.LoadSceneAsync (sceneToLoad);
 		_loadOp.allowSceneActivation = false;
 

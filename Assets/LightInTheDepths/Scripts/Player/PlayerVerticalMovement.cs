@@ -30,7 +30,7 @@ public class PlayerVerticalMovement : MonoBehaviour {
 			_jumpPhysicsMode = false;
 		}
 
-		if (!_state.isGrounded) {
+		if (!_state.isGrounded || _state.isDieing) {
 			return;
 		}
 		
