@@ -50,10 +50,6 @@ public class GrueWander : MonoBehaviour {
 			return false;
 		}
 
-		if (hit.collider.tag == "Wall") {
-			Debug.Log ("Hit wall!");
-		}
-
 		return hit.collider.tag != "Player" && hit.collider.tag != "Grue";
 	}
 
