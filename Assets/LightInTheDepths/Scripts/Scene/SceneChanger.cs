@@ -41,15 +41,19 @@ public class SceneChanger : MonoBehaviour {
 			yield break;
 		}
 		player.SendMessage ("OnStartWalkForward");
-		Camera cam = GameObject.FindObjectOfType<Camera> ();
-		OrbitCamera orbit = cam.GetComponent<OrbitCamera> ();
 		Transform toLookAt = player.transform;
-		if (orbit != null) {
-			toLookAt = orbit.target;
-			Destroy (orbit);
+
+		Camera[] cams = GameObject.FindObjectsOfType<Camera> ();
+		foreach (Camera cam in cams) {
+			OrbitCamera orbit = cam.GetComponent<OrbitCamera> ();
+
+			if (orbit != null) {
+				toLookAt = orbit.target;
+				Destroy (orbit);
+			}
+			LookAt look = cam.gameObject.AddComponent<LookAt> ();
+			look.toLookAt = toLookAt;
 		}
-		LookAt look = cam.gameObject.AddComponent<LookAt> ();
-		look.toLookAt = toLookAt;
 		yield return new WaitForSeconds(outroTime);
 		player.SendMessage ("OnExitLevel");
 		SceneManager.LoadScene (sceneToLoad);

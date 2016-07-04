@@ -19,10 +19,6 @@ public class StartToContinue : MonoBehaviour {
 		if (Input.anyKeyDown) {
 			_loadOp.allowSceneActivation = true;			
 		}
-		if (Input.GetKeyDown (KeyCode.L)) {
-			_loadOp.allowSceneActivation = true;
-			_specialLoadOp = SceneManager.LoadSceneAsync (6);
-			_specialLoadOp.allowSceneActivation = true;
-		}
+
 	}
 }
