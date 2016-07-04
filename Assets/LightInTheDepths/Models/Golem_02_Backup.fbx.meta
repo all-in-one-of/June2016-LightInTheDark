@@ -80,11 +80,12 @@ ModelImporter:
     400070: R_Leg_Upper
     400072: Sphere
     4300000: Sphere
-    7400000: GolemAnim_Punch.001
+    7400000: Default
     7400002: Armature|GolemAnim_Jump
     7400004: Armature|GolemAnim_Punch
     7400006: Armature|GolemAnim_Run
     7400008: Armature|GolemAnim_Punch0
+    7400010: Armature|GolemAnim_Jump0
     9500000: //RootNode
     13700000: Sphere
   materials:
@@ -426,6 +427,108 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/L_Arm_Elbow
+        weight: 1
+      - path: Armature/L_Arm_Elbow/L_Arm_Elbow_end
+        weight: 1
+      - path: Armature/L_Arm_IK
+        weight: 1
+      - path: Armature/L_Arm_IK/L_Arm_IK_end
+        weight: 1
+      - path: Armature/L_Leg_IK
+        weight: 1
+      - path: Armature/L_Leg_IK/L_Leg_IK_end
+        weight: 1
+      - path: Armature/L_Leg_Knee
+        weight: 1
+      - path: Armature/L_Leg_Knee/L_Leg_Knee_end
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Chest
+        weight: 1
+      - path: Armature/Pelvis/Chest/Head
+        weight: 1
+      - path: Armature/Pelvis/Chest/Head/Head_end
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower/L_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/Chest/L_Arm_Upper/L_Arm_Lower/L_Arm_Hand/L_Arm_Hand_end
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower/R_Arm_Hand
+        weight: 1
+      - path: Armature/Pelvis/Chest/R_Arm_Upper/R_Arm_Lower/R_Arm_Hand/R_Arm_Hand_end
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper/L_Leg_Lower
+        weight: 1
+      - path: Armature/Pelvis/L_Leg_Upper/L_Leg_Lower/L_Leg_Lower_end
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper/R_Leg_Lower
+        weight: 1
+      - path: Armature/Pelvis/R_Leg_Upper/R_Leg_Lower/R_Leg_Lower_end
+        weight: 1
+      - path: Armature/R_Arm_Elbow
+        weight: 1
+      - path: Armature/R_Arm_Elbow/R_Arm_Elbow_end
+        weight: 1
+      - path: Armature/R_Arm_IK
+        weight: 1
+      - path: Armature/R_Arm_IK/R_Arm_IK_end
+        weight: 1
+      - path: Armature/R_Leg_IK
+        weight: 1
+      - path: Armature/R_Leg_IK/R_Leg_IK_end
+        weight: 1
+      - path: Armature/R_Leg_Knee
+        weight: 1
+      - path: Armature/R_Leg_Knee/R_Leg_Knee_end
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|GolemAnim_Jump0
+      takeName: Armature|GolemAnim_Jump
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
