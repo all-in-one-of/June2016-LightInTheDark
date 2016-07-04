@@ -9,10 +9,7 @@ public class SceneChanger : MonoBehaviour {
 	public float introTime = 1.0f;
 	public float outroTime = 1.0f;
 
-	private AsyncOperation _loadOp;
 	void Start() {
-		_loadOp = SceneManager.LoadSceneAsync (sceneToLoad);
-		_loadOp.allowSceneActivation = false;
 
 		if (doIntro) {
 			StartCoroutine("StartIntro", GameObject.FindGameObjectWithTag("Player"));
@@ -24,7 +21,7 @@ public class SceneChanger : MonoBehaviour {
 				StartCoroutine ("StartTransition", other.gameObject);
 			} else {
 				other.SendMessage ("OnExitLevel");
-				_loadOp.allowSceneActivation = true;
+				SceneManager.LoadScene (sceneToLoad);
 			}
 		}
 	}
@@ -40,7 +37,7 @@ public class SceneChanger : MonoBehaviour {
 
 	IEnumerator StartTransition(GameObject player) {
 		if (player == null) {
-			_loadOp.allowSceneActivation = true;
+			SceneManager.LoadScene (sceneToLoad);
 			yield break;
 		}
 		player.SendMessage ("OnStartWalkForward");
@@ -55,6 +52,6 @@ public class SceneChanger : MonoBehaviour {
 		look.toLookAt = toLookAt;
 		yield return new WaitForSeconds(outroTime);
 		player.SendMessage ("OnExitLevel");
-		_loadOp.allowSceneActivation = true;
+		SceneManager.LoadScene (sceneToLoad);
 	}
 }
